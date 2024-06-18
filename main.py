@@ -4,6 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from bs4 import BeautifulSoup
 
+import time
 import asyncio
 
 
@@ -16,7 +17,7 @@ class MonkeytypeHacker:
         wait = WebDriverWait(self.driver, 10)
         self.driver.get(url)
         wait.until(EC.url_to_be(url))
-        self.driver.implicitly_wait(5)
+        time.sleep(5)
         self.page_source = self.driver.page_source
 
     # gets the text from the page using BeautifulSoup
